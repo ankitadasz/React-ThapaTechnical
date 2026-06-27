@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #171f29;
+  color: rgb(228, 228, 228);
+  padding: 20px;
+  list-style: none;
+   font-family: 'Poppins', sans-serif;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 15px;
+}
+.box {
+    background-color: #21303C;
+  width: 450px;
+  min-height: 250px;
+  height: auto;
+  border-left: 2px solid rgb(202, 202, 202);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  word-spacing: 0.3px;
+  letter-spacing: 0.5px;
+
+}
+h2 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.button-container{
+    display: flex;
+    margin-top: 10px;
+    gap: 15px;
+}
+.edit,.delete{
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border: 1px solid;
+    transition: all 0.1s ease;
+}
+.edit:hover,.delete:hover{
+    cursor: pointer;
+    transform: scale(0.95);
+    
+}
+
+.edit{
+    background-color: #19BF85;
+}
+.edit:hover{
+    background-color: #159c6d;
+}
+.delete{
+    background-color: #DF4E3C;
+}
+.delete:hover{
+    background-color: #ad3526 ;
+}

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { deletePost, getPost } from "../api/PostApi";
 import "../App.css";
+import { Form } from "./Form";
 
 export const Posts = () => {
   const [value, setValue] = useState([]);
@@ -40,10 +41,17 @@ export const Posts = () => {
     getPostData();
   }, []);
   return (
+    <>
+  
+    <section className="form-container">
+        <Form value={value} setValue={setValue}/>
+
+    </section>
     <ul className="box-container">
       {value.map((item,index) => {
         const { id, title, body } = item;
         return (
+            
           <li key={item.id} className="box">
             <p>
               {index+1}
@@ -67,5 +75,6 @@ export const Posts = () => {
         );
       })}
     </ul>
+      </>
   );
 };

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "12th Fail",
+    "imgUrl": "https://i.pinimg.com/736x/8f/3c/fc/8f3cfcad7ee6fc9836ed99ac4c0daacd.jpg",
+    "rating": "9.2",
+    "cast": "Vikrant Massey, Medha Shankr",
+    "summary": "A hardworking student fights poverty and failure to become an IPS officer."
+  },
+  {
+    "id": 2,
+    "name": "3 Idiots",
+    "imgUrl": "https://i.pinimg.com/1200x/37/91/88/379188ab7518d709261a8c6bbd85c364.jpg",
+    "rating": "9.0",
+    "cast": "Aamir Khan, R Madhavan, Sharman Joshi",
+    "summary": "Three engineering students learn about life, friendship and passion."
+  },
+  {
+    "id": 3,
+    "name": "Interstellar",
+    "imgUrl": "https://i.pinimg.com/736x/f1/7b/f8/f17bf8beb6a4279267d8ab9393c9254e.jpg",
+    "rating": "8.9",
+    "cast": "Matthew McConaughey, Anne Hathaway",
+    "summary": "Astronauts travel through space to save humanity."
+  },
+  {
+    "id": 4,
+    "name": "Money Heist",
+    "imgUrl": "https://i.pinimg.com/736x/ae/72/02/ae720208df7144c3f34108e9b62db7a0.jpg",
+    "rating": "8.7",
+    "cast": "Alvaro Morte, Ursula Corbero",
+    "summary": "A mastermind plans the biggest robbery in history."
+  },
+  {
+    "id": 5,
+    "name": "Wednesday",
+    "imgUrl": "https://i.pinimg.com/736x/25/30/87/253087e1bbbcefaddb65b33d672c419a.jpg",
+    "rating": "8.3",
+    "cast": "Jenna Ortega, Emma Myers",
+    "summary": "Wednesday investigates mysterious murders at Nevermore Academy."
+  }
+]

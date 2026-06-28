@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { addPost } from "../api/PostApi";
 
-export const Form = ({data,setData}) => {
+export const Form = ({value,setValue}) => {
   const [addData, setAddData] = useState({
-    title: " ",
-    body: " ",
+    title: "",
+    body: "",
   });
   const addPostData = async () =>{
    const res= await addPost(addData);
-   if(res.status==200){
-    setData([...data,res.data])
+   console.log(res);
+   
+   if (res.status === 201 || res.status === 200){
+    setValue((prev)=>[...prev,res.data])
+    setAddData({title:"",body:""});
    }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addPostData();
   };

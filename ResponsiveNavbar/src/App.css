@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "urbanist";
+}
+
+p,
+li,
+a,
+button {
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+}
+
+li,ul {
+  list-style: none;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+header {
+  height: 10rem;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  background-color: #d4e6f1;
+  width: 100%;
+}
+
+.container {
+  max-width: 132rem;
+  margin:0 auto;
+  height: 10rem;
+}
+.grid{
+  display: grid;
+}
+.navbar-grid{
+  grid-template-columns:.5fr 1fr;
+  align-items: center;
+  height: 10rem;
+}
+nav ul{
+  display: flex;
+  justify-content: flex-end;
+  background-color: yellow;
+  gap: 3.2rem;
+
+}
+a{
+text-decoration: none;
+}

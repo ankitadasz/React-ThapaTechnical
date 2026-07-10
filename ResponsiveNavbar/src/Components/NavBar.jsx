@@ -1,4 +1,11 @@
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 export const Navbar = () => {
+  const[showMenu,setShowMenu]=useState(false);
+  const handleButton = () =>{
+    setShowMenu(!showMenu);
+  }
   return (
     <header>
       <div className="container">
@@ -6,7 +13,7 @@ export const Navbar = () => {
           <div className="logo">
             <h1>Ankita</h1>
           </div>
-          <nav>
+          <nav className={showMenu ? "menu-mobile" : "menu-web"}>
             <ul>
               <li>
                 <a href="#">Home</a>
@@ -23,6 +30,12 @@ export const Navbar = () => {
 
             </ul>
           </nav>
+          <div className="ham-menu">
+            <button onClick={handleButton}>
+               <GiHamburgerMenu />
+            </button>
+           
+            </div>
 
         </div>
       </div>

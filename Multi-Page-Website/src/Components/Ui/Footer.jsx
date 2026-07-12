@@ -1,7 +1,8 @@
+import footersData from "../../Api/FooterApi.json";
 export const Footer= () =>{
-    return(
-        <>
-        <h1>Then i am the foot</h1>
-        </>
-    )
+    return <footer className="footer-section">
+        <div className="footer-container-wrapper"> 
+            
+        </div>
+    </footer>
 }

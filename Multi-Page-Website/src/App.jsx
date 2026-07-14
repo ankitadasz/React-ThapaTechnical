@@ -6,6 +6,7 @@ import "./App.css"
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import { AppLayout } from "./Components/Layout/AppLayout"
 import { ErrorPage } from "./Pages/ErrorPage"
+import { CountryDetails } from "./Components/Layout/CountryDetails"
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path:"/country",
     element:<Country/>
+  },
+  {
+    path:"/country/:code",
+    element:<CountryDetails/>
   }
     ]
   }

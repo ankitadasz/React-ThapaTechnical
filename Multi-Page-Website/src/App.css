@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
-
-/* ===========================
-   GLOBAL CSS
-=========================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -41,9 +36,7 @@ button {
   font-family: inherit;
 }
 
-/* ===========================
-   COMMON CSS
-=========================== */
+
 
 .container {
   width: 90%;
@@ -61,9 +54,6 @@ button {
   gap: 6rem;
 }
 
-/* ===========================
-   HEADER
-=========================== */
 
 header {
   width: 100%;
@@ -351,7 +341,6 @@ nav ul li a.active::after {
 
   background: linear-gradient(160deg, #191919 0%, #0f0f0f 100%);
   border-left: 2px dashed #2a2a2a;
-
   -webkit-mask: radial-gradient(circle 7px at 0 0, transparent 7px, #000 7.5px)
       top left,
     radial-gradient(circle 7px at 0 100%, transparent 7px, #000 7.5px) bottom
@@ -361,7 +350,6 @@ nav ul li a.active::after {
     radial-gradient(circle 7px at 0 100%, transparent 7px, #000 7.5px) bottom
       left;
   mask-repeat: no-repeat;
-
   transition: 0.3s;
 }
 
@@ -380,14 +368,12 @@ nav ul li a.active::after {
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid #4f9dff;
   border-radius: 50px;
   color: #4f9dff;
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-
   transform: translateY(-50%) rotate(-14deg);
   transition: 0.3s;
 }
@@ -513,7 +499,6 @@ form {
   max-width: 130rem;
   margin: 0 auto;
   padding: 4rem 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -534,14 +519,11 @@ form {
 .icon {
   width: 5rem;
   height: 5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
   background-color: #4f9dff;
-
   color: white;
   font-size: 2.2rem;
 }
@@ -571,7 +553,6 @@ form {
   max-width: 130rem;
   margin: 0 auto;
   padding: 2.5rem 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -621,24 +602,19 @@ form {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-
   padding: 2rem 0 3rem;
 }
 
 .footer-social-icons a {
   width: 4.5rem;
   height: 4.5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border: 1px solid #878787;
   border-radius: 50%;
-
   color: white;
   font-size: 2rem;
-
   transition: 0.3s;
 }
 
@@ -673,7 +649,7 @@ form {
   .footer-social-icons {
     gap: 1.5rem;
   }
-}/* ==========================
+} /* ==========================
    COUNTRY CARD
 ========================== */
 
@@ -715,16 +691,13 @@ form {
   position: absolute;
   top: 0;
   left: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background: linear-gradient(160deg, #151515, #0a0a0a);
   border: 1px solid #292626;
-  border-radius:2.4rem;
-
+  border-radius: 2.4rem;
   backface-visibility: hidden;
 }
 
@@ -756,7 +729,6 @@ form {
 /* Back Side */
 .country-card-back {
   transform: rotateY(180deg);
-
   padding: 2rem;
   align-items: flex-start;
   gap: 1rem;
@@ -793,7 +765,7 @@ form {
   justify-content: center;
   gap: 0.8rem;
 }
-.btn-text{
+.btn-text {
   font-weight: 800;
   font-size: 1.5rem;
 }
@@ -823,7 +795,6 @@ form {
 /* ===========================
    COUNTRY DETAILS
 =========================== */
-
 
 .country-details-section {
   min-height: calc(100vh - 8rem);
@@ -906,7 +877,7 @@ form {
 .country-name {
   font-size: 3.6rem;
   font-weight: 700;
-  color: #fff;
+  color: #4f9dff;
   line-height: 1.1;
 }
 
@@ -947,7 +918,7 @@ form {
   font-family: "JetBrains Mono", monospace;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #f5f5f5;
+  color: #4f9dff;
   text-align: right;
 }
 
@@ -991,5 +962,103 @@ form {
 
   .country-info {
     grid-template-columns: 1fr;
+  }
+}
+.Details-back-btn {
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: #60a5fa;
+  border: 2px solid #60a5fa;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Details-back-btn:hover {
+  background: #60a5fa;
+  color: #0f172a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.35);
+}
+
+.Details-back-btn:active {
+  transform: scale(0.97);
+}
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 20rem;
+}
+/* ===========================
+   Search & Filter Section
+=========================== */
+/* Search & Filter Section */
+
+.search-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input,.select-section {
+  width: 20rem;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: 1px solid #3e3939;
+  border-radius: 50px;
+  outline: none;
+  background-color: transparent;
+  color:  rgb(104, 104, 104);
+}
+
+.search-input:focus {
+  border-color: #4f9dff;
+}
+
+.search-container button {
+  padding: 0.9rem 1.8rem;
+  font-size: 1.5rem;
+  border: 1px solid #4f9dff;
+  border-radius: 20px;
+  background: transparent;
+  color: #4f9dff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-container button:hover {
+  background: #4f9dff;
+  color: white;
+}
+
+.select-section {
+  appearance: none;
+  -webkit-appearance: none;
+  color:rgb(104, 104, 104);
+}
+.select-section:focus {
+  border-color: #4f9dff;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input,
+  .search-container button,
+  .select-section {
+    width: 100%;
   }
 }

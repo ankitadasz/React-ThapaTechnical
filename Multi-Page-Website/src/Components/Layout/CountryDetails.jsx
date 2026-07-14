@@ -1,5 +1,5 @@
 import { useEffect, useState, useTransition } from "react";
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { getCountryIndData } from "../../Api/PostApi";
 import Loader from "../Ui/Loader";
 
@@ -93,6 +93,10 @@ return (
         </p>
 
       </div>
+      <NavLink to="/country">
+        <button className="Details-back-btn">Go Back</button>
+      </NavLink>
+      
     </div>
   </section>
 );

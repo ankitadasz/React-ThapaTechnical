@@ -1,7 +1,9 @@
+import { NavLink } from "react-router-dom"
+
 export const Home = ()=>{
     return(
         <>
-        <h1>Hello bachoo back homeeeeee</h1>
+        <h1>Home Sweet Home</h1>
         </>
     )
 }

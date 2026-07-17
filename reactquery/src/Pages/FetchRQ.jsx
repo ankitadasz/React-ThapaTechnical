@@ -6,7 +6,9 @@ export const FetchRQ = () => {
     queryKey:['post'],//useState
     queryFn: fetchData,//useEffect
     // gcTime:1000,
-    staleTime:100000000,
+    // staleTime:100000000,
+    refetchInterval:2000,
+    refetchIntervalInBackground:true,
   })
   if(isLoading) return <p>is Loading....</p>;
   if(isError) return <p>Error:{error.message || "Something went wrong!!!!"}</p>

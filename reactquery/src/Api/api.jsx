@@ -4,7 +4,7 @@ const api= axios.create({
 })
 
 export const fetchData = async() =>{
-  const res= await api.get("/posts");
+  const res= await api.get("/postsb");
   return res.status === 200 ? res.data : [];
 }
 

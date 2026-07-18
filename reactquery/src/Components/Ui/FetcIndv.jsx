@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { FetchIndvData } from "../../Api/api";
 import { useQuery } from "@tanstack/react-query";
 
@@ -19,6 +19,7 @@ console.log(data);
             <p>Title:{data.title}</p>
             <p>Body:{data.body}</p>
         </li>
+        <NavLink to="/rq">GoBack</NavLink>
       </ul>
     )
 }

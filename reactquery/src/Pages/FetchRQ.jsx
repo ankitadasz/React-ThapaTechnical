@@ -1,5 +1,5 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { deletePost, fetchData } from "../Api/api";
+import { deletePost, fetchData, updatePost } from "../Api/api";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 export const FetchRQ = () => {
@@ -11,17 +11,30 @@ export const FetchRQ = () => {
     placeholderData:keepPreviousData,
   });
 
-  //!Mutationnnnn
+  //!Mutationnnnn delete
   const deleteMutation=useMutation({
     mutationFn:(id)=>deletePost(id),
     onSuccess:(data,id) =>{
       queryClient.setQueryData(["posts",page],(currElem)=>{
         return currElem?.filter((post)=>post.id !== id)
       })
-      
-
     }
   })
+
+   //!Mutationnnnn update
+  const updateMutation=useMutation({
+    mutationFn:(id)=>updatePost(id),
+    onSuccess:(apiData,postId) =>{
+      console.log(apiData,postId)
+      queryClient.setQueryData(["posts",page],(postData)=>{
+        return postData?.map((currPost) =>{
+          return currPost.id === postId ? {...currPost,title:apiData.data.title}:currPost
+        })
+            })
+    }
+  })
+
+
   if (isLoading) return <p>is Loading....</p>;
   if (isError)
     return <p>Error:{error.message || "Something went wrong!!!!"}</p>;
@@ -39,6 +52,8 @@ export const FetchRQ = () => {
                 <p>{body}</p>
               </NavLink>
               <button onClick={()=>deleteMutation.mutate(id)}>Delete</button>
+              
+              <button onClick={()=>updateMutation.mutate(id)}>Update</button>
             </li>
           );
         })}
@@ -47,7 +62,7 @@ export const FetchRQ = () => {
       <div>
         <button disabled={page === 0 ? true:false} onClick={() => setPage((prev)=>prev-3)}>Prev</button>
         <h2>{page/3 +1}</h2>
-        <button onClick={() => setPage((prev)=>prev+3)}>Next</button>
+        <button disabled={page > 33*3 ? true:false} onClick={() => setPage((prev)=>prev+3)}>Next</button>
       </div>
     </div>
   );

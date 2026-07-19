@@ -24,3 +24,6 @@ export const deletePost = (id) =>{
 }
 
 
+export const updatePost = (id) =>{
+    return api.patch(`/posts/${id}`,{title:"I have Updated"})
+}

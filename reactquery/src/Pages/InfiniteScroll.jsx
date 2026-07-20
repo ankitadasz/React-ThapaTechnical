@@ -1,8 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { fetchUsers } from "../Api/api"
+import { useEffect } from "react";
 
 export const InfiniteScroll = () =>{
-   const {data}= useInfiniteQuery({
+   const {data,hasNextPage,fetchNextPage}= useInfiniteQuery({
         queryKey:["users"],
         queryFn:fetchUsers,
          initialPageParam: 1,
@@ -13,7 +14,21 @@ export const InfiniteScroll = () =>{
 
         }
     })
+
+    const handleScroll=()=>{
+        const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight-1;
+        if(bottom && hasNextPage){
+            fetchNextPage();
+        }
+    }
     console.log(data);
+    useEffect(()=>{
+        window.addEventListener('scroll',handleScroll);
+        return () => window.removeEventListener("scroll",handleScroll)
+    },[hasNextPage])
+
+
+
       return (
     <div className="container">
       <h1>GitHub Users</h1>

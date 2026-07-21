@@ -1,8 +1,9 @@
-
+import { Todo } from "./Components/Todo";
+import "./App.css";
 const App = () =>{
   return(
     <>
-    <h1>Hello Redux</h1>
+    <Todo/>
     
     </>
   )

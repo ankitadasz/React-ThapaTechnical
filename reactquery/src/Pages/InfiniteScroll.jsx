@@ -1,35 +1,40 @@
-import { useInfiniteQuery } from "@tanstack/react-query"
-import { fetchUsers } from "../Api/api"
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { fetchUsers } from "../Api/api";
 import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
-export const InfiniteScroll = () =>{
-   const {data,hasNextPage,fetchNextPage}= useInfiniteQuery({
-        queryKey:["users"],
-        queryFn:fetchUsers,
-         initialPageParam: 1,
-        getNextPageParam:(lastPage,allPages)=>{
-            console.log("lastpage",lastPage);
-            console.log("allpages",allPages);
-            return lastPage.length === 10 ? allPages.length +1 : undefined;
+export const InfiniteScroll = () => {
+  const { data, hasNextPage, fetchNextPage,isFetchingNextPage } = useInfiniteQuery({
+    queryKey: ["users"],
+    queryFn: fetchUsers,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      console.log("lastpage", lastPage);
+      console.log("allpages", allPages);
+      return lastPage.length === 10 ? allPages.length + 1 : undefined;
+    },
+  });
 
-        }
-    })
+  // const handleScroll=()=>{
+  //     const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight-1;
+  // if(bottom && hasNextPage){
+  //     fetchNextPage();
+  // }
+  // }
 
-    const handleScroll=()=>{
-        const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight-1;
-        if(bottom && hasNextPage){
-            fetchNextPage();
-        }
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+
+  useEffect(() => {
+    // window.addEventListener('scroll',handleScroll);
+    // return () => window.removeEventListener("scroll",handleScroll)
+    if (inView && hasNextPage) {
+      fetchNextPage();
     }
-    console.log(data);
-    useEffect(()=>{
-        window.addEventListener('scroll',handleScroll);
-        return () => window.removeEventListener("scroll",handleScroll)
-    },[hasNextPage])
+  }, [inView, fetchNextPage, hasNextPage]);
 
-
-
-      return (
+  return (
     <div className="container">
       <h1>GitHub Users</h1>
 
@@ -47,6 +52,15 @@ export const InfiniteScroll = () =>{
           ))
         )}
       </div>
+      <div ref={ref}>{
+      isFetchingNextPage
+      ?"loading More..."
+      : hasNextPage
+      ?"scrolldown"
+      :"no more users"
+
+        
+        }</div>
     </div>
   );
 };

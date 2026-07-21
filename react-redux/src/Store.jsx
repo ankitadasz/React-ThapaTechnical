@@ -1,36 +1,43 @@
-import {createStore} from "redux";
-const ADD_TASK='task/add';
-const DELETE_TASK='task/delete';
+import { createStore } from "redux";
+const ADD_TASK = "task/add";
+const DELETE_TASK = "task/delete";
 const initialState = {
-    task:[]
-}
+  task: [],
+};
 
-export const taskReducer = (state=initialState,action) =>{
-    switch (action.type) {
-        case ADD_TASK:
-    return {
+export const taskReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TASK:
+      return {
         ...state,
-        task:[...state.task,action.payload]
-    }
+        task: [...state.task, action.payload],
+      };
     case DELETE_TASK:
-        const updatedTask = state.task.filter((currTask,index)=>{
-            return index !== action.payload;
-        })
-        return{
-            ...state,
-            task:[updatedTask]
-        }
-        default: 
-        return state;
-    }
-
-}
+      const updatedTask = state.task.filter((currTask, index) => {
+        return index !== action.payload;
+      });
+      return {
+        ...state,
+        task: [updatedTask],
+      };
+    default:
+      return state;
+  }
+};
 const store = createStore(taskReducer);
 console.log(store);
-console.log("InitialState:",store.getState());
-store.dispatch({type:ADD_TASK,payload:"Hello Ankita Pretty gurll"})
-console.log("updatedState:",store.getState());
-store.dispatch({type:ADD_TASK,payload:"Buy a big home"})
-console.log("updatedState:",store.getState());
-store.dispatch({type:DELETE_TASK,payload:0})
-console.log("DeletedState:",store.getState())
+console.log("InitialState:", store.getState());
+store.dispatch(addTask("Hello Ankita Pretty gurll"));
+console.log("updatedState:", store.getState());
+store.dispatch(addTask("Ankita will buy a big home"));
+console.log("updatedState:", store.getState());
+store.dispatch(deleteTask(0));
+console.log("DeletedState:", store.getState());
+
+const addTask = (data) => {
+  return { type: ADD_TASK, payload: data };
+};
+
+const deleteTask = (id) => {
+  return { type: DELETE_TASK, payload: id };
+};

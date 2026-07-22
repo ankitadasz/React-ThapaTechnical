@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTask, deleteTask } from "../Store";
+import { addTask, deleteTask, fetchTask } from "../Store";
 export const Todo = () => {
   const [task, setTask] = useState("");
 
@@ -19,6 +19,9 @@ export const Todo = () => {
   const handleTaskDelete = (index) => {
     return dispatch(deleteTask(index));
   };
+  const handleFetchTasks = () =>{
+    dispatch(fetchTask())
+  }
 
   return (
     <div className="container">
@@ -40,6 +43,7 @@ export const Todo = () => {
             <button>Add Task</button>
           </form>
         </div>
+        <button onClick={handleFetchTasks}>Fetch Tasks</button>
 
         <ul id="list-container">
           {state.map((currTask, index) => {

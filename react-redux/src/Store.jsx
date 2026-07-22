@@ -42,6 +42,7 @@ export const addTask = (data) => {
 export const deleteTask = (id) => {
   return { type: DELETE_TASK, payload: id };
 };
+
 export const store = createStore(
   taskReducer,
   composeWithDevTools(applyMiddleware(thunk))

@@ -24,25 +24,25 @@ export const taskReducer = (state = initialState, action) => {
       return state;
   }
 };
-const addTask = (data) => {
+export const addTask = (data) => {
   return { type: ADD_TASK, payload: data };
 };
 
-const deleteTask = (id) => {
+export const deleteTask = (id) => {
   return { type: DELETE_TASK, payload: id };
 };
 export const store = createStore(taskReducer);
 console.log(store);
 console.log("InitialState:", store.getState());
-store.dispatch(addTask("Hello Ankita Pretty gurll"));
-console.log("updatedState:", store.getState());
-store.dispatch(addTask("Ankita will buy a big home"));
-store.dispatch(addTask("Ankita will buy a big big home"));
-store.dispatch(addTask("Ankita will buy a big biggggggggg home"));
-store.dispatch(addTask("Ankita will buy a bigggggggggggggggg home"));
-store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggg home"));
-store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggggggg home"));
+// store.dispatch(addTask("Hello Ankita Pretty gurll"));
+// console.log("updatedState:", store.getState());
+// store.dispatch(addTask("Ankita will buy a big home"));
+// store.dispatch(addTask("Ankita will buy a big big home"));
+// store.dispatch(addTask("Ankita will buy a big biggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a bigggggggggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggggggg home"));
 
-console.log("updatedState:", store.getState());
-store.dispatch(deleteTask(0));
-console.log("DeletedState:", store.getState());
+// console.log("updatedState:", store.getState());
+// store.dispatch(deleteTask(0));
+// console.log("DeletedState:", store.getState());

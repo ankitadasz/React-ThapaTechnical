@@ -54,37 +54,82 @@ const initialState = {
 // console.log(store);
 
 //? RTK slice
-const taskReducer=createSlice({
+const taskReducer = createSlice({
   name: "task",
   initialState: initialState,
   reducers: {
-    addTask(state, action) {},
-    deleteTask(state, action) {},
+    addTask(state, action) {
+      state.task.push(action.payload)
+    },
+    deleteTask(state, action) {
+      state.task=state.task.filter((currTask,index)=>
+        index !== action.payload
+      )
+
+
+    },
   },
 });
-console.log(taskReducer)
-const {addTask,deleteTask} = taskReducer.actions;
+console.log(taskReducer);
+export const { addTask, deleteTask } = taskReducer.actions;
 
 //!newStyle
 export const store = configureStore({
   reducer: {
-    taskReducer: taskReducer, //or u can write simply taskReducer instead of taskReducer:taskReducer
+    taskReducer: taskReducer.reducer, //or u can write simply taskReducer instead of taskReducer:taskReducer
   },
 });
-console.log(store.getState());
-console.log("InitialState:", store.getState());
-store.dispatch(addTask("Hello Ankita Pretty gurll"));
-console.log("updatedState:", store.getState());
-store.dispatch(addTask("Ankita will buy a big home"));
-store.dispatch(addTask("Ankita will buy a big big home"));
-store.dispatch(addTask("Ankita will buy a big biggggggggg home"));
-store.dispatch(addTask("Ankita will buy a bigggggggggggggggg home"));
-store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggg home"));
-store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggggggg home"));
 
-console.log("updatedState:", store.getState());
-store.dispatch(deleteTask(0));
-console.log("DeletedState:", store.getState());
+console.log(store.getState());
+
+console.log(store.dispatch(addTask("Buy apple")));
+
+console.log(store.dispatch(addTask("Buy applrvffge")));
+
+console.log(store.getState());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(store.getState());
+// console.log("InitialState:", store.getState());
+// store.dispatch(addTask("Hello Ankita Pretty gurll"));
+// console.log("updatedState:", store.getState());
+// store.dispatch(addTask("Ankita will buy a big home"));
+// store.dispatch(addTask("Ankita will buy a big big home"));
+// store.dispatch(addTask("Ankita will buy a big biggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a bigggggggggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggg home"));
+// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggggggg home"));
+
+// console.log("updatedState:", store.getState());
+// store.dispatch(deleteTask(0));
+// console.log("DeletedState:", store.getState());
 
 //middleware function
 export const fetchTask = (id) => {

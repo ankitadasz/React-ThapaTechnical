@@ -8,7 +8,7 @@ export const Todo = () => {
 //The (state) => state.task) is a normal arrow function which is saying from the redux store i only want the task property
 // the basic meaning of this code is use USESELECTOR to go to the store and bring me the task array
 
-
+ const tasks=useSelector(state =>state.taskReducer.task)
   const dispatch = useDispatch();
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ export const Todo = () => {
         <button onClick={handleFetchTasks}>Fetch Tasks</button>
 
         <ul id="list-container">
-          {state.map((currTask, index) => {
+          {tasks?.map((currTask, index) => {
             return (
               <li key={index}>
                 <p>

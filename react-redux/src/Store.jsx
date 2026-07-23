@@ -1,13 +1,11 @@
 // import { applyMiddleware, createStore } from "redux";
 // import { composeWithDevTools } from "@redux-devtools/extension";
 // import { thunk } from "redux-thunk";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import { taskReducer } from "./Features/Tasks/TaskSlice";
 // const ADD_TASK = "task/add";
 // const DELETE_TASK = "task/delete";
 // const FETCH_TASK = "task/fetch";
-const initialState = {
-  task: [],
-};
 
 // export const taskReducer = (state = initialState, action) => {
 //   switch (action.type) {
@@ -53,25 +51,7 @@ const initialState = {
 // );
 // console.log(store);
 
-//? RTK slice
-const taskReducer = createSlice({
-  name: "task",
-  initialState: initialState,
-  reducers: {
-    addTask(state, action) {
-      state.task.push(action.payload)
-    },
-    deleteTask(state, action) {
-      state.task=state.task.filter((currTask,index)=>
-        index !== action.payload
-      )
-
-
-    },
-  },
-});
-console.log(taskReducer);
-export const { addTask, deleteTask } = taskReducer.actions;
+// console.log(taskReducer);
 
 //!newStyle
 export const store = configureStore({
@@ -79,57 +59,6 @@ export const store = configureStore({
     taskReducer: taskReducer.reducer, //or u can write simply taskReducer instead of taskReducer:taskReducer
   },
 });
-
-console.log(store.getState());
-
-console.log(store.dispatch(addTask("Buy apple")));
-
-console.log(store.dispatch(addTask("Buy applrvffge")));
-
-console.log(store.getState());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(store.getState());
-// console.log("InitialState:", store.getState());
-// store.dispatch(addTask("Hello Ankita Pretty gurll"));
-// console.log("updatedState:", store.getState());
-// store.dispatch(addTask("Ankita will buy a big home"));
-// store.dispatch(addTask("Ankita will buy a big big home"));
-// store.dispatch(addTask("Ankita will buy a big biggggggggg home"));
-// store.dispatch(addTask("Ankita will buy a bigggggggggggggggg home"));
-// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggg home"));
-// store.dispatch(addTask("Ankita will buy a biggggggggggggggggggggggggg home"));
-
-// console.log("updatedState:", store.getState());
-// store.dispatch(deleteTask(0));
-// console.log("DeletedState:", store.getState());
 
 //middleware function
 export const fetchTask = (id) => {

@@ -4,7 +4,7 @@ import { addTask, deleteTask, fetchTask } from "../Store";
 export const Todo = () => {
   const [task, setTask] = useState("");
 
-  const state = useSelector((store) => store.task); //Here the useSelector will only read the data from the redux store and there is no other work of it
+  const state = useSelector((store) => store.taskReducer.task); //Here the useSelector will only read the data from the redux store and there is no other work of it
 //The (state) => state.task) is a normal arrow function which is saying from the redux store i only want the task property
 // the basic meaning of this code is use USESELECTOR to go to the store and bring me the task array
 

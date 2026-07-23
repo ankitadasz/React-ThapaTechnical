@@ -1,6 +1,7 @@
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "@redux-devtools/extension";
-import { thunk } from "redux-thunk";
+// import { applyMiddleware, createStore } from "redux";
+// import { composeWithDevTools } from "@redux-devtools/extension";
+// import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 const ADD_TASK = "task/add";
 const DELETE_TASK = "task/delete";
 const FETCH_TASK = "task/fetch";
@@ -42,12 +43,19 @@ export const addTask = (data) => {
 export const deleteTask = (id) => {
   return { type: DELETE_TASK, payload: id };
 };
+//!oldStyle
+// export const store = createStore(
+//   taskReducer,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
+// console.log(store);
 
-export const store = createStore(
-  taskReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
-console.log(store);
+//!newStyle
+export const store=configureStore({
+  reducer:{
+    taskReducer:taskReducer,
+  }
+})
 console.log(store.getState());
 console.log("InitialState:", store.getState());
 store.dispatch(addTask("Hello Ankita Pretty gurll"));
